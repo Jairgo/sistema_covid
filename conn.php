@@ -49,6 +49,23 @@
                 ?>
         </tbody>
     </table>
+    <h1> PARA GRAFICOS - EVOLUCIÓN DE CASOS CONFIRMADOS POR PAIS </h1>
+    <?php
+        for ($i=0; $i < $count; $i++) {
+            echo($datos["Countries"][$i]["Country"] ." = ". $datos["Countries"][$i]["TotalConfirmed"]." / ");
+            $confByCountry=$datos["Countries"][$i]["TotalConfirmed"];
+        }
+    ?>
+
+    <h1> PARA GRAFICOS - EVOLUCIÓN DE DEFUNCIONES POR PAIS </h1>
+    <?php
+        for ($i=0; $i < $count; $i++) {
+           echo($datos["Countries"][$i]["Country"] ." = ". $datos["Countries"][$i]["TotalDeaths"]." / ");
+           $deadByCountry=$datos["Countries"][$i]["TotalDeaths"];
+        }
+    ?>
+
+
 
         <?php
             $url="https://api.covid19api.com/summary";
@@ -62,7 +79,7 @@
         <p><?php echo("Total muertes".": ".$datos["Global"]["TotalDeaths"]); ?></p>
         <p><?php echo("Nuevos recuperados".": ".$datos["Global"]["NewRecovered"]); ?></p>
         <p><?php echo("Total recuperados".": ".$datos["Global"]["TotalRecovered"]); ?></p>
-        <h1> PARA GRAFICOS - EVOLUCIÓN DE CASOS CONFIRMADOS GLOBAL </h1>
+        
 
 
         <h1> PARA GRAFICOS - EVOLUCIÓN DE CASOS CONFIRMADOS EN MEXICO </h1>
@@ -74,21 +91,21 @@
             
             for ($i=0; $i <  $count ; $i++) { 
                 $confirmedMexico[$i]=$datos[$i]["Confirmed"];
-                echo($array[$i]." / ");
+                echo($confirmedMexico[$i]." / ");
             }
         ?> 
         <h1> PARA GRAFICOS - EVOLUCIÓN DE DEFUNCIONES EN MEXICO </h1>
         <?php
             for ($i=0; $i < 71 ; $i++) { 
                 $deadMexico[$i]=$datos[$i]["Deaths"];
-                echo($array[$i]." / ");
+                echo($deadMexico[$i]." / ");
             }
         ?>
         <h1> PARA GRAFICOS - EVOLUCIÓN DE RECUPERADOS EN MEXICO </h1>
         <?php
             for ($i=0; $i < 71 ; $i++) { 
                 $recoverMexico[$i]=$datos[$i]["Recovered"];
-                echo($array[$i]." / ");
+                echo($recoverMexico[$i]." / ");
             }
         ?>
 
