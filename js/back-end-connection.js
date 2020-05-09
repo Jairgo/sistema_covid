@@ -24,11 +24,16 @@ request.onload = function() {
 request.send()
 
 function updateData(country){
+    country = country.toLowerCase();
     var countryId = -1;
+    var indexOfName = -1;
     for(let i=0;i<data.Countries.length;i++){
-        if(data.Countries[i].Country.indexOf(country) != -1){
-            countryId = i;
-            break;
+        let iof = data.Countries[i].Country.toLowerCase().indexOf(country);
+        if(iof != -1){
+            if(countryId == -1 || iof < indexOfName){
+                countryId = i;
+                indexOfName = iof;
+            }
         }
     }
     if(countryId == -1 || country.length == 0){
