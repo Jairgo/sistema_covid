@@ -4,8 +4,63 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sistema Covid 19</title>
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
+    <script src="js/back-end-connection.js"></script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 </head>
 <body>
-    
+<div class="row">
+    <div class="column">
+        <p>COVID-19</p>
+    </div>
+    <div class="column">
+        <input type="text" placeholder="Búsqueda avanzada..." class="searchBar">
+    </div>
+    <div class="column">
+        <div style="max-height: 200px;">
+            <a class="twitter-timeline"
+            href="https://twitter.com/opsoms?ref_src=twsrc%5Etfw"
+            data-chrome="nofooter"
+            data-height="200">Tweets by opsoms</a>
+            <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> 
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="column">
+        <div id="chartContainer1" class="chart-container"></div> 
+    </div>
+    <div class="column">
+        <p>Información general</p>
+        <div class="grid-container">
+            <div id="Confirmados">Confirmados</div>
+            <div id="Negativos">Negativos</div>
+            <div id="Muertes">Muertes</div>  
+            <div id="Recuperados">Recuperados</div>
+        </div>
+    </div>
+    <div class="column">
+        <p>Datos</p>
+    </div>
+</div>
+
+<div class="row">
+    <div class="column">
+        <div id="chartContainer2" class="chart-container"></div>
+    </div>
+    <div class="column">
+        <div id="chartContainer3" class="chart-container"></div>
+    </div>
+        <div class="column">
+    </div>
+</div>
+
+<footer>
+    Sistema COVID-19
+</footer> 
+
+<script src="js/charts.js"></script>
+
 </body>
 </html>
