@@ -9,7 +9,7 @@ request.onload = function() {
         return b.TotalConfirmed - a.TotalConfirmed;
     });
     
-    updateData();
+    updateData("");
 
     var casosPorPais_element = document.getElementById("casosPorPais");
     for(let i=0;i<10;i++){
@@ -26,12 +26,12 @@ request.send()
 function updateData(country){
     var countryId = -1;
     for(let i=0;i<data.Countries.length;i++){
-        if(data.Countries[i].Country.indexOf(country) == 0){
+        if(data.Countries[i].Country.indexOf(country) != -1){
             countryId = i;
             break;
         }
     }
-    if(countryId == -1){
+    if(countryId == -1 || country.length == 0){
         var confirmados_element = document.getElementById("Confirmados");
         confirmados_element.innerHTML = data['Global']['TotalConfirmed'] + " Confirmados";
         var muertes_element = document.getElementById("Muertes");
@@ -40,6 +40,7 @@ function updateData(country){
         confirmados_element.innerHTML = data['Global']['TotalRecovered'] + " Recuperados";
         var infogeneral_element = document.getElementById("InfoGeneral");
         infogeneral_element.innerHTML = "Información general global";
+        drawCharts("");
     }else{
         // console.log("Country: " + data.Countries[countryId].Country);
         var confirmados_element = document.getElementById("Confirmados");
@@ -50,6 +51,7 @@ function updateData(country){
         confirmados_element.innerHTML = data.Countries[countryId]['TotalRecovered'] + " Recuperados";
         var infogeneral_element = document.getElementById("InfoGeneral");
         infogeneral_element.innerHTML = "Información general de " + data.Countries[countryId].Country;
+        drawCharts(data.Countries[countryId].Country);
     }
 }
 

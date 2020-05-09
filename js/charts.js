@@ -1,28 +1,49 @@
 google.charts.load('current', {'packages':['corechart']});
-google.charts.setOnLoadCallback(drawCharts);
+google.charts.setOnLoadCallback(drawCharts(""));
 
-function drawCharts() {
-    drawChart1();
-    drawChart2();
-    drawChart3();
+function drawCharts(countryName) {
+  if(countryName != ""){
+    var request = new XMLHttpRequest()
+    
+    request.open('GET', 'https://api.covid19api.com/total/dayone/country/'+countryName, true)
+
+    request.onload = function() {
+        var data;
+        data = JSON.parse(this.response);
+        
+        var data1 = [['Rubro', 'Cantidad'],
+          ['Confirmados', data[data.length-1].Confirmed-data[Math.max(data.length-14,0)].Confirmed],
+          ['Muertes', data[data.length-1].Deaths-data[Math.max(data.length-14,0)].Deaths],
+          ['Recuperados', data[data.length-1].Recovered-data[Math.max(data.length-14,0)].Recovered]];
+        var data2 = [['Rubro', 'Cantidad'],
+                    ['Confirmados', data[data.length-1].Confirmed],
+                    ['Muertes', data[data.length-1].Deaths],
+                    ['Recuperados', data[data.length-1].Recovered]];
+        var data3 = [['Fecha', 'Casos Acumulados']];
+        for(let i=0;i<data.length;i++){
+          data3.push([data[i].Date, data[i].Confirmed]);
+        }
+        
+        drawChart1(data1, countryName);
+        drawChart2(data2, countryName);
+        drawChart3(data3, countryName);
+    }
+
+    request.send()
+  }else{
+    // Global charts
+    drawCharts("Mexico");
+  }
 }
 
 var chartTextStyle = {color: '#FFF'};
 
-function drawChart1() {
+function drawChart1(data, country) {
 
-var data = google.visualization.arrayToDataTable([
-    ['Rubro', 'Cantidad'],
-    ['Confirmados', 11],
-    ['Negativos', 2],
-    ['Muertes', 2],
-    ['Recuperados', 2]
-]);
+data = google.visualization.arrayToDataTable(data);
 
 var options = {
-    title: 'Casos en los últimos 14 días',
-    //chartArea: {left:10,top:20,width:'100%',height:'100%'},
-    //backgroundColor: { fill:'transparent' }
+    title: country != "" ? 'Casos en los últimos 14 días de ' + country : 'Casos en los últimos 14 días globales'
 };
 
 var chart = new google.visualization.PieChart(document.getElementById('chartContainer1'));
@@ -30,17 +51,11 @@ var chart = new google.visualization.PieChart(document.getElementById('chartCont
 chart.draw(data, options);
 }
 
-function drawChart2() {
-    var data = google.visualization.arrayToDataTable([
-      ['Rubro', 'Cantidad'],
-      ['Confirmados', 11],
-      ['Negativos', 2],
-      ['Muertes', 2],
-      ['Recuperados', 2]
-    ]);
+function drawChart2(data, country) {
+    data = google.visualization.arrayToDataTable(data);
 
     var options = {
-      title: 'Casos Acumulados',
+      title: country != "" ? 'Casos acumulados de ' + country : 'Casos acumulados globales',
       pieHole: 0.4,
     };
 
@@ -48,17 +63,11 @@ function drawChart2() {
     chart.draw(data, options);
 }
 
-function drawChart3() {
-    var data = google.visualization.arrayToDataTable([
-      ['Fecha', 'Casos Acumulados'],
-      ['01-Ene-2020', 1000],
-      ['01-Feb-2020', 1170],
-      ['01-Mar-2020', 1660],
-      ['01-Abr-2020', 2030]
-    ]);
+function drawChart3(data, country) {
+    var data = google.visualization.arrayToDataTable(data);
 
     var options = {
-      title: 'Casos Acumulados en el Tiempo',
+      title: country != "" ? 'Casos acumulados en el tiempo de ' + country : 'Casos acumulados en el tiempo globales',
       curveType: 'function',
       legend: { position: 'bottom' }
     };
