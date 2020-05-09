@@ -14,7 +14,14 @@ request.onload = function() {
     data['Countries'].sort(function(a,b){
         return b.TotalConfirmed - a.TotalConfirmed;
     });
-    console.log(data.Countries[0]);
+    var casosPorPais_element = document.getElementById("casosPorPais");
+    for(let i=0;i<10;i++){
+        var row = casosPorPais_element.insertRow(-1);
+        var cell1 = row.insertCell(0);
+        var cell2 = row.insertCell(1);
+        cell1.innerHTML = data.Countries[i].Country;
+        cell2.innerHTML = data.Countries[i].TotalConfirmed; 
+    }
 }
 
 request.send()

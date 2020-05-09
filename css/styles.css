@@ -45,6 +45,16 @@
     height: 200px !important;
 }
 
+#casosPorPais{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+td{
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
 html {
     font-family: "Lucida Sans", sans-serif;
     color: white;
