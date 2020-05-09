@@ -21,7 +21,7 @@
     }
 }
 
-.searchBar {
+#searchBar {
     padding: 6px;
     border: none;
     margin-top: 8px;
@@ -43,6 +43,16 @@
 
 .twitter-timeline {
     height: 200px !important;
+}
+
+#casosPorPais{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+td{
+    padding-left: 10px;
+    padding-right: 10px;
 }
 
 html {

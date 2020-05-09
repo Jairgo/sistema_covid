@@ -22,10 +22,10 @@
         <p>COVID-19</p>
     </div>
     <div class="column">
-        <input type="text" placeholder="Búsqueda avanzada..." class="searchBar">
+        <input type="text" placeholder="Búsqueda avanzada..." id="searchBar">
     </div>
     <div class="column">
-        <div style="max-height: 200px;">
+        <div>
             <a class="twitter-timeline"
             href="https://twitter.com/opsoms?ref_src=twsrc%5Etfw"
             data-chrome="nofooter"
@@ -59,7 +59,7 @@
         <div id="chartContainer1" class="chart-container"></div> 
     </div>
     <div class="column">
-        <p>Información general</p>
+        <p id="InfoGeneral">Información general</p>
         <div class="grid-container">
             <div id="Confirmados">Confirmados</div>
             <div id="Negativos">Negativos</div>
@@ -68,7 +68,13 @@
         </div>
     </div>
     <div class="column">
-        <p>Datos</p>
+        <p>Casos por país</p>
+        <table id="casosPorPais">
+            <tr>
+                <th>País</th>
+                <th>Casos</th>
+            </tr>
+        </table>
     </div>
 </div>
 
@@ -79,14 +85,13 @@
     <div class="column">
         <div id="chartContainer3" class="chart-container"></div>
     </div>
-        <div class="column">
-    </div>
 </div>
 
 <footer>
     Sistema COVID-19
 </footer> 
 
+<script src="js/back-end-connection.js"></script>
 <script src="js/charts.js"></script>
 
 </body>
