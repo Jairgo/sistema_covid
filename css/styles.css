@@ -21,7 +21,7 @@
     }
 }
 
-.searchBar {
+#searchBar {
     padding: 6px;
     border: none;
     margin-top: 8px;

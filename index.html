@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sistema Covid 19</title>
     <link rel="stylesheet" type="text/css" href="css/styles.css">
-    <script src="js/back-end-connection.js"></script>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 </head>
 <body>
@@ -14,7 +13,7 @@
         <p>COVID-19</p>
     </div>
     <div class="column">
-        <input type="text" placeholder="Búsqueda avanzada..." class="searchBar">
+        <input type="text" placeholder="Búsqueda avanzada..." id="searchBar">
     </div>
     <div class="column">
         <div>
@@ -32,7 +31,7 @@
         <div id="chartContainer1" class="chart-container"></div> 
     </div>
     <div class="column">
-        <p>Información general</p>
+        <p id="InfoGeneral">Información general</p>
         <div class="grid-container">
             <div id="Confirmados">Confirmados</div>
             <div id="Negativos">Negativos</div>
@@ -64,6 +63,7 @@
     Sistema COVID-19
 </footer> 
 
+<script src="js/back-end-connection.js"></script>
 <script src="js/charts.js"></script>
 
 </body>
