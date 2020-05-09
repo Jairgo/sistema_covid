@@ -1,15 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Bootstrap Example</title>
+  <title>Sistema Covid-19</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.css">
+  <script type="text/javascript" charset="utf8" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+  <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.js"></script>
+  
+
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
   <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
   
   <script src="https://kit.fontawesome.com/07baa58181.js" crossorigin="anonymous"></script>
+
+  
   <!--Boostrap-->
     <script src="js/back-end-connection.js"></script>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
@@ -97,6 +104,42 @@
                 <hr>
                 <div class="container">
                     <div id="chartContainer3" class="chart-container"></div>
+                    <?php
+                        $url="https://api.covid19api.com/summary";
+                        $json=file_get_contents($url);
+                        $datos=json_decode($json,true);
+                        $count =count($datos["Countries"]);
+                    ?>
+                    <table id="example" class="display">
+                        <thead>
+                            <tr>
+                                <th>País</th>
+                                <th>Nuevos confirmados</th>
+                                <th>Total Confirmados</th>
+                                <th>Nuevas muertes</th>
+                                <th>Total muertes</th>
+                                <th>Nuevos recuperados</th>
+                                <th>Total recuperados</th>
+                
+                            </tr>
+                        </thead>
+                        <tbody>
+                            
+                                <?php 
+                                for ($i=0; $i < $count; $i++) {
+                                    ?> <tr> <?php
+                                    ?><td><?php  echo($datos["Countries"][$i]["Country"]); ?></td><?php
+                                    ?><td><?php  echo($datos["Countries"][$i]["NewConfirmed"]); ?></td><?php
+                                    ?><td><?php  echo($datos["Countries"][$i]["TotalConfirmed"]); ?></td><?php
+                                    ?><td><?php  echo($datos["Countries"][$i]["NewDeaths"]); ?></td><?php
+                                    ?><td><?php  echo($datos["Countries"][$i]["TotalDeaths"]); ?></td><?php
+                                    ?><td><?php  echo($datos["Countries"][$i]["NewRecovered"]); ?></td><?php
+                                    ?><td><?php  echo($datos["Countries"][$i]["TotalRecovered"]); ?></td><?php
+                                    ?> </tr> <?php
+                                }
+                                ?>
+                        </tbody>
+                    </table>
                 </div>
             </div>
             <div class="col-sm-3">
@@ -108,8 +151,13 @@
 </div>
 
 <footer class="container-fluid text-center" style="margin-top:2rem;">
-  <p>Footer Text</p>
+  <p>Sistema de información de Covid-19</p>
 </footer>
 <script src="js/charts.js"></script>
 </body>
 </html>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('#example').DataTable();
+    } );
+</script>
