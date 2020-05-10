@@ -7,11 +7,11 @@ google.charts.setOnLoadCallback(drawCharts(""));
 
 
 
-function drawCharts(countryName) {
-  if(countryName != ""){
+function drawCharts(countryName, countrySlug) {
+  if(countrySlug != ""){
     var request = new XMLHttpRequest()
     
-    request.open('GET', 'https://api.covid19api.com/total/dayone/country/'+countryName, true)
+    request.open('GET', 'https://api.covid19api.com/total/dayone/country/'+countrySlug, true)
 
     request.onload = function() {
         var data;
@@ -29,7 +29,7 @@ function drawCharts(countryName) {
         for(let i=0;i<data.length;i++){
           let date = new Date(data[i].Date);
           date = date.getUTCDate()+'/'+(date.getUTCMonth()+1)+'/'+date.getUTCFullYear();
-          data3.push([date, data[i].Confirmed]);
+          data3.push([date, parseInt(data[i].Confirmed)]);
         }
         
         drawChart1(data1, countryName);
@@ -40,23 +40,22 @@ function drawCharts(countryName) {
     request.send()
   }else{
     // Global charts
-    drawCharts("Mexico");
+    drawCharts("México", "mexico");
   }
 }
 
 var chartTextStyle = {color: '#FFF'};
 
 function drawChart1(data, country) {
+  data = google.visualization.arrayToDataTable(data);
 
-data = google.visualization.arrayToDataTable(data);
+  var options = {
+      title: country != "" ? 'Casos en los últimos 14 días de ' + country : 'Casos en los últimos 14 días globales'
+  };
 
-var options = {
-    title: country != "" ? 'Casos en los últimos 14 días de ' + country : 'Casos en los últimos 14 días globales'
-};
+  var chart = new google.visualization.PieChart(document.getElementById('chartContainer1'));
 
-var chart = new google.visualization.PieChart(document.getElementById('chartContainer1'));
-
-chart.draw(data, options);
+  chart.draw(data, options);
 }
 
 function drawChart2(data, country) {
@@ -72,7 +71,7 @@ function drawChart2(data, country) {
 }
 
 function drawChart3(data, country) {
-    var data = google.visualization.arrayToDataTable(data);
+    data = google.visualization.arrayToDataTable(data);
 
     var options = {
       title: country != "" ? 'Casos acumulados a través del tiempo. ' + country : 'Casos acumulados a través del tiempo',

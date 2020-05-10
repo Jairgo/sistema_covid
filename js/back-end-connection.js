@@ -9,7 +9,14 @@ request.onload = function() {
         return b.TotalConfirmed - a.TotalConfirmed;
     });
     
-    updateData("");
+    updateData(searchBar.value);
+
+    for(let i=0;i<data.Countries.length;i++){
+        let traduccion = dict[data.Countries[i].Country];
+        if(traduccion){
+            data.Countries[i].Country = dict[data.Countries[i].Country];
+        }
+    }
 
     var casosPorPais_element = document.getElementById("casosPorPais");
     for(let i=0;i<10;i++){
@@ -29,11 +36,11 @@ let muertes_element = document.getElementById("Muertes");
 let recuperados_element = document.getElementById("Recuperados");
 let infogeneral_element = document.getElementById("InfoGeneral");
 function updateData(country){
-    country = country.toLowerCase();
+    country = country.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
     var countryId = -1;
     var indexOfName = -1;
     for(let i=0;i<data.Countries.length;i++){
-        let iof = data.Countries[i].Country.toLowerCase().indexOf(country);
+        let iof = data.Countries[i].Country.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().indexOf(country);
         if(iof != -1){
             if(countryId == -1 || iof < indexOfName){
                 countryId = i;
@@ -46,13 +53,13 @@ function updateData(country){
         muertes_element.innerHTML = data['Global']['TotalDeaths'] + " Muertes";
         recuperados_element.innerHTML = data['Global']['TotalRecovered'] + " Recuperados";
         infogeneral_element.innerHTML = "Información general global";
-        drawCharts("");
+        drawCharts("","");
     }else{
         confirmados_element.innerHTML = data.Countries[countryId]['TotalConfirmed'] + " Confirmados";
         muertes_element.innerHTML = data.Countries[countryId]['TotalDeaths'] + " Muertes";
         recuperados_element.innerHTML = data.Countries[countryId]['TotalRecovered'] + " Recuperados";
         infogeneral_element.innerHTML = "Información general de " + data.Countries[countryId].Country;
-        drawCharts(data.Countries[countryId].Country);
+        drawCharts(data.Countries[countryId].Country, data.Countries[countryId].Slug);
     }
 }
 
