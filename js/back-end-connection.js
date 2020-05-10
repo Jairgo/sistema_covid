@@ -11,6 +11,13 @@ request.onload = function() {
     
     updateData("");
 
+    for(let i=0;i<data.Countries.length;i++){
+        let traduccion = dict[data.Countries[i].Country];
+        if(traduccion){
+            data.Countries[i].Country = dict[data.Countries[i].Country];
+        }
+    }
+
     var casosPorPais_element = document.getElementById("casosPorPais");
     for(let i=0;i<10;i++){
         var row = casosPorPais_element.insertRow(-1);

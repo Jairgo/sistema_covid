@@ -39,7 +39,7 @@ function drawCharts(countryName, countrySlug) {
     request.send()
   }else{
     // Global charts
-    drawCharts("Mexico", "mexico");
+    drawCharts("México", "mexico");
   }
 }
 
