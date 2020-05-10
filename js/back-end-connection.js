@@ -9,7 +9,7 @@ request.onload = function() {
         return b.TotalConfirmed - a.TotalConfirmed;
     });
     
-    updateData("");
+    updateData(searchBar.value);
 
     for(let i=0;i<data.Countries.length;i++){
         let traduccion = dict[data.Countries[i].Country];
