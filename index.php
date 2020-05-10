@@ -7,6 +7,7 @@
 
     for ($i=0; $i < $count; $i++) { 
         $manejo[$i]["name"]=$datos["Countries"][$i]["Country"];
+        $manejo[$i]["name2"]=$datos["Countries"][$i]["Country"];
         $manejo[$i]["name"]=$code[$manejo[$i]["name"]];
         $manejo[$i]["number"]=$datos["Countries"][$i]["TotalConfirmed"];
     }
@@ -62,7 +63,9 @@
     function drawRegionsMap() {
         var data = google.visualization.arrayToDataTable((<?= json_encode(convertDataToChartForm($manejo)); ?>));
 
-        var options = {};
+        var options = {
+            colorAxis: {colors: ['#F0E4DE', '#E90000']} 
+        };
 
         var chart = new google.visualization.GeoChart(document.getElementById('regions_div'));
 
