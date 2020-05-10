@@ -35,11 +35,11 @@ let muertes_element = document.getElementById("Muertes");
 let recuperados_element = document.getElementById("Recuperados");
 let infogeneral_element = document.getElementById("InfoGeneral");
 function updateData(country){
-    country = country.toLowerCase();
+    country = country.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
     var countryId = -1;
     var indexOfName = -1;
     for(let i=0;i<data.Countries.length;i++){
-        let iof = data.Countries[i].Country.toLowerCase().indexOf(country);
+        let iof = data.Countries[i].Country.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().indexOf(country);
         if(iof != -1){
             if(countryId == -1 || iof < indexOfName){
                 countryId = i;
