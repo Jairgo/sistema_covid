@@ -1,0 +1,77 @@
+* {
+    box-sizing: border-box;
+}
+
+.column {
+    float: left;
+    width: 33.33%;
+    padding: 10px;
+    text-align: center;
+}
+
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+@media screen and (max-width: 600px) {
+    .column {
+        width: 100%;
+    }
+}
+
+#searchBar {
+    padding: 6px;
+    border: none;
+    margin-top: 8px;
+    margin-right: 16px;
+    font-size: 17px;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-gap: 10px;
+    padding: 10px;
+}
+
+.chart-container{
+    width: 100%;
+    height: 300px;
+}
+
+.twitter-timeline {
+    height: 200px !important;
+}
+
+#casosPorPais{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+td{
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+html {
+    font-family: "Lucida Sans", sans-serif;
+    color: white;
+    background-color: black;
+}
+
+footer {
+    display: block;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: black;
+    color: white;
+    text-align: center;
+    font-size: small;
+    padding-top: 1px;
+    padding-bottom: 1px;
+    opacity: 0.8;
+}
