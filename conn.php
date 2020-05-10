@@ -79,7 +79,7 @@
     <h1> PARA GRAFICOS - EVOLUCIÓN DE CASOS CONFIRMADOS POR PAIS </h1>
     <?php
         for ($i=0; $i < $count; $i++) {
-            echo($datos["Countries"][$i]["Country"] ." = ". $datos["Countries"][$i]["TotalConfirmed"]." / ");
+            echo($datos["Countries"][$i]["Country"]."<br>" );//." = ". $datos["Countries"][$i]["TotalConfirmed"]." / ");
             $confByCountry=$datos["Countries"][$i]["TotalConfirmed"];
         }
     ?>

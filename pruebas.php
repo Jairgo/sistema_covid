@@ -1,3 +1,38 @@
+<?php
+    include_once("conna.php");
+    $url="https://api.covid19api.com/summary";
+    $json=file_get_contents($url);
+    $datos=json_decode($json,true);
+    $count =count($datos["Countries"]);
+
+    for ($i=0; $i < $count; $i++) { 
+        $manejo[$i]["name"]=$datos["Countries"][$i]["Country"];
+        $manejo[$i]["name"]=$code[$manejo[$i]["name"]];
+        $manejo[$i]["number"]=$datos["Countries"][$i]["TotalConfirmed"];
+    }
+    //var_dump((array)$manejo);
+
+    function convertDataToChartForm($manejo)
+    {
+        $newData = array();
+        $firstLine = true;
+
+        foreach ($manejo as $dataRow)
+        {
+            if ($firstLine)
+            {
+                $newData[] = array_keys($dataRow);
+                $firstLine = false;
+            }
+
+            $newData[] = array_values($dataRow);
+        }
+        return $newData;
+    }
+    convertDataToChartForm($manejo);
+
+    
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,6 +53,23 @@
   <script src="https://kit.fontawesome.com/07baa58181.js" crossorigin="anonymous"></script>
   <!--Boostrap-->
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+
+    <script type="text/javascript">
+    google.charts.load('current', {'packages':['geochart'],'mapsApiKey': 'AIzaSyD-9tSrke72PouQMnMX-a7eZSW0jkFMBWY'});
+    google.charts.setOnLoadCallback(drawRegionsMap);
+
+    function drawRegionsMap() {
+        var data = google.visualization.arrayToDataTable((<?= json_encode(convertDataToChartForm($manejo)); ?>));
+
+        var options = {};
+
+        var chart = new google.visualization.GeoChart(document.getElementById('regions_div'));
+
+        chart.draw(data, options);
+    }
+
+    </script>
     
   <style>
     
@@ -80,7 +132,7 @@
                     </table>
                 </div>
             </div>
-            <div class="col">
+            <div class="col-sm-6">
                 <h1>Covid-19</h1>
                 <div class="input-group">
                   <input class="form-control border rounded-pill-left border-right-0" type="search" placeholder="Búsqueda" id="searchBar">
