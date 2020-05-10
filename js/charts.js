@@ -6,11 +6,11 @@ google.charts.setOnLoadCallback(drawRegionsMap);
 
 
 
-function drawCharts(countryName) {
-  if(countryName != ""){
+function drawCharts(countryName, countrySlug) {
+  if(countrySlug != ""){
     var request = new XMLHttpRequest()
     
-    request.open('GET', 'https://api.covid19api.com/total/dayone/country/'+countryName, true)
+    request.open('GET', 'https://api.covid19api.com/total/dayone/country/'+countrySlug, true)
 
     request.onload = function() {
         var data;
@@ -39,7 +39,7 @@ function drawCharts(countryName) {
     request.send()
   }else{
     // Global charts
-    drawCharts("Mexico");
+    drawCharts("Mexico", "mexico");
   }
 }
 

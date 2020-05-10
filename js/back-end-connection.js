@@ -45,13 +45,13 @@ function updateData(country){
         muertes_element.innerHTML = data['Global']['TotalDeaths'] + " Muertes";
         recuperados_element.innerHTML = data['Global']['TotalRecovered'] + " Recuperados";
         infogeneral_element.innerHTML = "Información general global";
-        drawCharts("");
+        drawCharts("","");
     }else{
         confirmados_element.innerHTML = data.Countries[countryId]['TotalConfirmed'] + " Confirmados";
         muertes_element.innerHTML = data.Countries[countryId]['TotalDeaths'] + " Muertes";
         recuperados_element.innerHTML = data.Countries[countryId]['TotalRecovered'] + " Recuperados";
         infogeneral_element.innerHTML = "Información general de " + data.Countries[countryId].Country;
-        drawCharts(data.Countries[countryId].Country);
+        drawCharts(data.Countries[countryId].Country, data.Countries[countryId].Slug);
     }
 }
 
