@@ -17,6 +17,33 @@
             $json=file_get_contents($url);
             $datos=json_decode($json,true);
             $count =count($datos["Countries"]);
+
+            for ($i=0; $i < $count; $i++) { 
+                $manejo[$i]["name"]=$datos["Countries"][$i]["Country"];
+                $manejo[$i]["number"]=$datos["Countries"][$i]["TotalConfirmed"];
+            }
+            //var_dump((array)$manejo);
+
+            function convertDataToChartForm($manejo)
+            {
+                $newData = array();
+                $firstLine = true;
+
+                foreach ($manejo as $dataRow)
+                {
+                    if ($firstLine)
+                    {
+                        $newData[] = array_keys($dataRow);
+                        $firstLine = false;
+                    }
+
+                    $newData[] = array_values($dataRow);
+                }
+                return $newData;
+            }
+            convertDataToChartForm($manejo);
+
+            
         ?>
         <h1> POR PAÍS </h1>
     <table id="example" class="display">

@@ -18,6 +18,7 @@ request.onload = function() {
         var cell2 = row.insertCell(1);
         cell1.innerHTML = data.Countries[i].Country;
         cell2.innerHTML = data.Countries[i].TotalConfirmed; 
+        
     }
 }
 
