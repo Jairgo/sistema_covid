@@ -26,7 +26,9 @@ function drawCharts(countryName) {
                     ['Recuperados', data[data.length-1].Recovered]];
         var data3 = [['Fecha', 'Casos Acumulados']];
         for(let i=0;i<data.length;i++){
-          data3.push([data[i].Date, data[i].Confirmed]);
+          let date = new Date(data[i].Date);
+          date = date.getUTCDate()+'/'+(date.getUTCMonth()+1)+'/'+date.getUTCFullYear();
+          data3.push([date, data[i].Confirmed]);
         }
         
         drawChart1(data1, countryName);
@@ -72,7 +74,7 @@ function drawChart3(data, country) {
     var data = google.visualization.arrayToDataTable(data);
 
     var options = {
-      title: country != "" ? 'Casos acumulados en el tiempo de ' + country : 'Casos acumulados en el tiempo globales',
+      title: country != "" ? 'Casos acumulados a través del tiempo. ' + country : 'Casos acumulados a través del tiempo',
       curveType: 'function',
       legend: { position: 'bottom' }
     };

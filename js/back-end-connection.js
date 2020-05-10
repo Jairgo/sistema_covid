@@ -23,33 +23,33 @@ request.onload = function() {
 
 request.send()
 
+let confirmados_element = document.getElementById("Confirmados");
+let muertes_element = document.getElementById("Muertes");
+let recuperados_element = document.getElementById("Recuperados");
+let infogeneral_element = document.getElementById("InfoGeneral");
 function updateData(country){
+    country = country.toLowerCase();
     var countryId = -1;
+    var indexOfName = -1;
     for(let i=0;i<data.Countries.length;i++){
-        if(data.Countries[i].Country.indexOf(country) != -1){
-            countryId = i;
-            break;
+        let iof = data.Countries[i].Country.toLowerCase().indexOf(country);
+        if(iof != -1){
+            if(countryId == -1 || iof < indexOfName){
+                countryId = i;
+                indexOfName = iof;
+            }
         }
     }
     if(countryId == -1 || country.length == 0){
-        var confirmados_element = document.getElementById("Confirmados");
         confirmados_element.innerHTML = data['Global']['TotalConfirmed'] + " Confirmados";
-        var muertes_element = document.getElementById("Muertes");
         muertes_element.innerHTML = data['Global']['TotalDeaths'] + " Muertes";
-        var confirmados_element = document.getElementById("Recuperados");
-        confirmados_element.innerHTML = data['Global']['TotalRecovered'] + " Recuperados";
-        var infogeneral_element = document.getElementById("InfoGeneral");
+        recuperados_element.innerHTML = data['Global']['TotalRecovered'] + " Recuperados";
         infogeneral_element.innerHTML = "Información general global";
         drawCharts("");
     }else{
-        // console.log("Country: " + data.Countries[countryId].Country);
-        var confirmados_element = document.getElementById("Confirmados");
         confirmados_element.innerHTML = data.Countries[countryId]['TotalConfirmed'] + " Confirmados";
-        var muertes_element = document.getElementById("Muertes");
         muertes_element.innerHTML = data.Countries[countryId]['TotalDeaths'] + " Muertes";
-        var confirmados_element = document.getElementById("Recuperados");
-        confirmados_element.innerHTML = data.Countries[countryId]['TotalRecovered'] + " Recuperados";
-        var infogeneral_element = document.getElementById("InfoGeneral");
+        recuperados_element.innerHTML = data.Countries[countryId]['TotalRecovered'] + " Recuperados";
         infogeneral_element.innerHTML = "Información general de " + data.Countries[countryId].Country;
         drawCharts(data.Countries[countryId].Country);
     }
