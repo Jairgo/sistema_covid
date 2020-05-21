@@ -171,10 +171,20 @@
             <!------>
             <!------>
             <div class="col-sm-4">
-                <div class="container col">
-                    <div id="regions_div" ></div>
+                <div class="container">
+                    <div id="chartContainer1" class="chart-container"></div>
                 </div>
                 <hr>
+                <div class="container">
+                    <div id="chartContainer2" class="chart-container"></div>
+                </div>
+                <hr>
+                <table id="casosPorPais">
+                    <tr>
+                        <th>País</th>
+                        <th>Casos</th>
+                    </tr>
+                </table>
             </div>
             <!------>
             <div class="col-sm"></div>
