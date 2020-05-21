@@ -171,13 +171,17 @@
                 <div class="container">
                     <div id="chartContainer1" class="chart-container"></div>
                 </div>
+                <hr>
+                <div class="container">
+                    <div id="chartContainer2" class="chart-container"></div>
+                </div>
 
             </div>
             <!------>
             <!------>
             <div class="col-sm-4">
                 <div class="container">
-                    <div id="chartContainer3" class="chart-container"><p>dasda</p></div>
+                    <div id="chartContainer3" class="chart-container"></div>
                 </div>
                 <hr>
                 <table id="casosPorPais">
