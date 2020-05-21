@@ -153,27 +153,32 @@
                     Información general
                     </div>
                     <div class="card-body">
-                        <div class="container">
-                            <div class="row">
-                                <div class="col">
-                                    <div id="Confirmados">Confirmados</div><i class="fas fa-head-side-mask"></i>
-                                    <div id="Muertes">Muertes</div><i class="fas fa-skull"></i>
-                                </div>
-                                <div class="col">
-                                    <div id="Negativos">Negativos</div>
-                                    <div id="Recuperados">Recuperados</div><i class="fas fa-user-plus"></i>
-                                </div>
-                            </div>
+                    <br/>
+                    <div class="row">
+                        <div class="col-sm">
+                        <span style="color: #FFAD00;"><i class="fas fa-head-side-mask fa-lg"></i></span><br/>
+                        <span style="color: #F03131;"><i class="fas fa-skull fa-lg"></i></span><br/>
+                        <span style="color: #2EBE2D;"><i class="fas fa-user-plus fa-lg"></i></span>
                         </div>
+                        <div class="col-sm-9" style="text-align: left;">
+                            <b><div id="Confirmados"></div></b>
+                            <b><div id="Muertes"></div></b>
+                            <b><div  id="Recuperados"></div></b>
+                            <br/>
+                        </div>
+                    </div>
+                         
+                         
                     </div>
                 </div>
                 <hr>
                 <div class="container">
-                    <div id="chartContainer1" class="chart-container"></div>
+                    <div id="chartContainer2" class="chart-container"></div>
                 </div>
                 <hr>
+                <br/>
                 <div class="container">
-                    <div id="chartContainer2" class="chart-container"></div>
+                    <div id="chartContainer3" class="chart-container"></div>
                 </div>
 
             </div>
@@ -181,9 +186,10 @@
             <!------>
             <div class="col-sm-4">
                 <div class="container">
-                    <div id="chartContainer3" class="chart-container"></div>
+                    <div id="chartContainer1" class="chart-container"></div>
                 </div>
                 <hr>
+                <h4>Mayor número de casos por país</h4>
                 <table id="casosPorPais">
                     <tr>
                         <th>País</th>
@@ -195,10 +201,26 @@
             <div class="col-sm"></div>
             <!------>
         </div>
+        <div class="row">
+            <!------>
+            <div class="col-sm-3"></div>
+            <!------> 
+            <!------>
+            <div class="col-sm-6">
+                <hr>
+                    <div id="regions_div" ></div>
+            </div>
+            <!------> 
+            <!------>
+            <div class="col-sm-3"></div>
+            <!------> 
+        </div>
 </div>
 
 <footer class="container-fluid text-center" style="margin-top:2rem;">
-  <p>Sistema de información de Covid-19.<br/>Desarrollado por: Jair Gómez y Jonathan Ramírez.</p>
+  <p>Sistema de información de Covid-19.<br/>Desarrollado por: Jair Gómez y Jonathan Ramírez.<br/>
+  Para la materia de calidad de software<br/>Profesor: MITI. Enrique Castellanos</p>
+  <b><a href="http://anahuac.mx/oaxaca" style="color: #ff8300">Universidad Anáhuac Oaxaca</a></b>
 </footer>
 <script src="js/dict.js"></script>
 <script src="js/back-end-connection.js"></script>
