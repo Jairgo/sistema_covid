@@ -156,12 +156,12 @@
                     <div class="card-body">
                     <br/>
                     <div class="row">
-                        <div class="col-sm">
+                        <div class="col-3">
                         <span style="color: #FFAD00;"><i class="fas fa-head-side-mask fa-lg"></i></span><br/>
                         <span style="color: #F03131;"><i class="fas fa-skull fa-lg"></i></span><br/>
                         <span style="color: #2EBE2D;"><i class="fas fa-user-plus fa-lg"></i></span>
                         </div>
-                        <div class="col-sm-9" style="text-align: left;">
+                        <div class="col-9" style="text-align: left;">
                             <b><div id="Confirmados"></div></b>
                             <b><div id="Muertes"></div></b>
                             <b><div  id="Recuperados"></div></b>

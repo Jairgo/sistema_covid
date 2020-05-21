@@ -49,7 +49,7 @@ function updateData(country){
         }
     }
     if(typeof country === 'undefined' || countryId == -1 || country.length == 0){
-        confirmados_element.innerHTML = data['Global']['TotalConfirmed'] +"&emsp;"+ " Recuperados";
+        confirmados_element.innerHTML = data['Global']['TotalConfirmed'] +"&emsp;"+ " Confirmados";
         muertes_element.innerHTML = data['Global']['TotalDeaths'] +"&emsp;"+ " Muertes";
         recuperados_element.innerHTML = data['Global']['TotalRecovered'] +"&emsp;"+ " Recuperados";
         infogeneral_element.innerHTML = "Información general global";
