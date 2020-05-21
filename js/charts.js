@@ -1,5 +1,5 @@
 google.charts.load('current', {'packages':['corechart']});
-google.charts.setOnLoadCallback(drawCharts(""));
+google.charts.setOnLoadCallback(drawCharts("", ""));
 
 //google.charts.load('current', {'packages':['geochart'],'mapsApiKey': 'AIzaSyD-9tSrke72PouQMnMX-a7eZSW0jkFMBWY'});
 //google.charts.setOnLoadCallback(drawRegionsMap);
@@ -8,7 +8,7 @@ google.charts.setOnLoadCallback(drawCharts(""));
 
 
 function drawCharts(countryName, countrySlug) {
-  if(countrySlug != ""){
+  if(typeof countrySlug !== 'undefined' && countrySlug != ""){
     var request = new XMLHttpRequest()
     
     request.open('GET', 'https://api.covid19api.com/total/dayone/country/'+countrySlug, true)
