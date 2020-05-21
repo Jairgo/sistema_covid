@@ -198,7 +198,7 @@
 </div>
 
 <footer class="container-fluid text-center" style="margin-top:2rem;">
-  <p>Sistema de información de Covid-19.<br/>Desarrollado por: Jair Gómez y Jonathan Ramírez.</p>
+  <p>Sistema de información de Covid-19.<br/>Desarrollado por: Jair Gómez y Jonathan Ramírez.<br>Universidad Anáhuac Oaxaca. Implementación de Sistemas Integrados.</p>
 </footer>
 <script src="js/dict.js"></script>
 <script src="js/back-end-connection.js"></script>
