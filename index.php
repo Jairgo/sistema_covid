@@ -143,7 +143,10 @@
         </div>
         <div class="col-sm-3"></div>
         <div class="row">
+            <!------>
             <div class="col-sm"></div>
+            <!------>
+            <!------>
             <div class="col-sm-4">
                 <div class="card text-center">
                     <div id="InfoGeneral" class="card-header">
@@ -161,24 +164,21 @@
                                     <div id="Recuperados">Recuperados</div><i class="fas fa-user-plus"></i>
                                 </div>
                             </div>
-                          </div>
+                        </div>
                     </div>
                 </div>
-                <hr>
-                <div class="container">
-                    <div id="chartContainer3" class="chart-container"></div>
-                </div>
-                <hr>
+            </div>
+            <!------>
+            <!------>
+            <div class="col-sm-4">
                 <div class="container col">
                     <div id="regions_div" ></div>
                 </div>
+                <hr>
             </div>
-            <div class="col-sm-4">
-                <div class="container">
-                    <div id="chartContainer3" class="chart-container"></div>
-                </div>
-            </div>
+            <!------>
             <div class="col-sm"></div>
+            <!------>
         </div>
 </div>
 
