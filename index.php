@@ -139,9 +139,12 @@
                 </div>
             </div>
             <div class="col-sm-6">
+                <img style="width:70px;position: absolute;top: 0;right: 10px;" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Logo_Universidad_An%C3%A1huac.svg/1200px-Logo_Universidad_An%C3%A1huac.svg.png">
                 <h1>Covid-19</h1>
+                <p>Sistema para consultar información sobre la pandemia COVID-19</p>
+                <p>Infórmate sobre los casos confirmados, los recuperados y las defunciones alrededor del mundo</p>
                 <div class="input-group">
-                  <input class="form-control border rounded-pill-left border-right-0" type="search" placeholder="Búsqueda" id="searchBar">
+                  <input class="form-control border rounded-pill-left border-right-0" type="search" placeholder="Busca aquí la información de algún país en específico" id="searchBar">
                   <span class="input-group-append">
                     <button class="btn btn-outline-secondary border rounded-pill-right border-left-0" type="button">
                         <i class="fa fa-search"></i>
@@ -187,7 +190,7 @@
 </div>
 
 <footer class="container-fluid text-center" style="margin-top:2rem;">
-  <p>Sistema de información de Covid-19</p>
+  <p>Sistema de información de Covid-19. Jair Gómez y Jonathan Ramírez.</p>
 </footer>
 <script src="js/dict.js"></script>
 <script src="js/back-end-connection.js"></script>
