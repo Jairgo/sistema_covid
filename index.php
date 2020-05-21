@@ -5,13 +5,16 @@
     $datos=json_decode($json,true);
     $count =count($datos["Countries"]);
 
-    for ($i=0; $i < $count; $i++) { 
+    for ($i=1; $i < $count; $i++) { 
         $manejo[$i]["name"]=$datos["Countries"][$i]["Country"];
         $manejo[$i]["name2"]=$datos["Countries"][$i]["Country"];
+        //echo($manejo[$i]["name"]."<br/>");
         $manejo[$i]["name"]=$code[$manejo[$i]["name"]];
-        $manejo[$i]["number"]=$datos["Countries"][$i]["TotalConfirmed"];
+        $manejo[$i]["Total Confirmados"]=$datos["Countries"][$i]["TotalConfirmed"];
+        $manejo[$i]["Total Muertes"]=$datos["Countries"][$i]["TotalDeaths"];
+        //$manejo[$i]["Total_Muertes"]=$datos["Countries"][$i]["TotalDeaths"];
     }
-    //var_dump((array)$manejo);
+    //var_dump($manejo);
 
     function convertDataToChartForm($manejo)
     {
