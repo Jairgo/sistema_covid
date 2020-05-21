@@ -123,10 +123,23 @@
 
 <div class="container-fluid text-center" style="margin-top:2rem;">
         <div class="row">
-        <div class="col-sm-3"></div>
-
+            <div class="col-sm-3">
+                <div id="chartContainer1" class="chart-container"></div>
+                <hr>
+                <div id="chartContainer2" class="chart-container"></div>
+                <hr>
+                <div>
+                    <p><b>Mayor número de casos por país</b></p>
+                    <table id="casosPorPais">
+                        <tr>
+                            <th>País</th>
+                            <th>Casos</th>
+                        </tr>
+                    </table>
+                </div>
+            </div>
             <div class="col-sm-6">
-            <img style="width:70px;position: absolute;top: 0;right: 10px;" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Logo_Universidad_An%C3%A1huac.svg/1200px-Logo_Universidad_An%C3%A1huac.svg.png">
+                <img style="width:70px;position: absolute;top: 0;right: 10px;" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Logo_Universidad_An%C3%A1huac.svg/1200px-Logo_Universidad_An%C3%A1huac.svg.png">
                 <h1>Covid-19</h1>
                 <p>Sistema para consultar información sobre la pandemia COVID-19</p>
                 <p>Infórmate sobre los casos confirmados, los recuperados y las defunciones alrededor del mundo</p>
@@ -139,12 +152,6 @@
                   </span>
                 </div>
                 <hr>
-            </div>
-        </div>
-        <div class="col-sm-3"></div>
-        <div class="row">
-            <div class="col-sm"></div>
-            <div class="col-sm-4">
                 <div class="card text-center">
                     <div id="InfoGeneral" class="card-header">
                     Información general
@@ -172,18 +179,18 @@
                 <div class="container col">
                     <div id="regions_div" ></div>
                 </div>
+                
             </div>
-            <div class="col-sm-4">
-                <div class="container">
-                    <div id="chartContainer3" class="chart-container"></div>
+            <div class="col-sm-3">
+                <div class="card">
+                    <a class="twitter-timeline" href="https://twitter.com/opsoms?ref_src=twsrc%5Etfw" height="950">Tweets by opsoms</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>      
                 </div>
             </div>
-            <div class="col-sm"></div>
         </div>
 </div>
 
 <footer class="container-fluid text-center" style="margin-top:2rem;">
-  <p>Sistema de información de Covid-19.<br/>Desarrollado por: Jair Gómez y Jonathan Ramírez.</p>
+  <p>Sistema de información de Covid-19. Jair Gómez y Jonathan Ramírez.</p>
 </footer>
 <script src="js/dict.js"></script>
 <script src="js/back-end-connection.js"></script>
