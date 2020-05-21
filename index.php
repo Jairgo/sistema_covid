@@ -128,6 +128,7 @@
             <div class="col-sm-6">
             <img style="width:70px;position: absolute;top: 0;right: 10px;" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Logo_Universidad_An%C3%A1huac.svg/1200px-Logo_Universidad_An%C3%A1huac.svg.png">
                 <h1>Covid-19</h1>
+                <br>
                 <p>Sistema para consultar información sobre la pandemia COVID-19</p>
                 <p>Infórmate sobre los casos confirmados, los recuperados y las defunciones alrededor del mundo</p>
                 <div class="input-group">
