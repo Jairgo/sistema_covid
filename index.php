@@ -128,6 +128,7 @@
             <div class="col-sm-6">
             <img style="width:70px;position: absolute;top: 0;right: 10px;" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Logo_Universidad_An%C3%A1huac.svg/1200px-Logo_Universidad_An%C3%A1huac.svg.png">
                 <h1>Covid-19</h1>
+                <br>
                 <p>Sistema para consultar información sobre la pandemia COVID-19</p>
                 <p>Infórmate sobre los casos confirmados, los recuperados y las defunciones alrededor del mundo</p>
                 <div class="input-group">
@@ -155,12 +156,12 @@
                     <div class="card-body">
                     <br/>
                     <div class="row">
-                        <div class="col-sm">
+                        <div class="col-3">
                         <span style="color: #FFAD00;"><i class="fas fa-head-side-mask fa-lg"></i></span><br/>
                         <span style="color: #F03131;"><i class="fas fa-skull fa-lg"></i></span><br/>
                         <span style="color: #2EBE2D;"><i class="fas fa-user-plus fa-lg"></i></span>
                         </div>
-                        <div class="col-sm-9" style="text-align: left;">
+                        <div class="col-9" style="text-align: left;">
                             <b><div id="Confirmados"></div></b>
                             <b><div id="Muertes"></div></b>
                             <b><div  id="Recuperados"></div></b>
